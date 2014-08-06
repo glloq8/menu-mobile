@@ -1,0 +1,78 @@
+@import "font-menu.less";
+
+.menu {
+    display:table;
+    table-layout:fixed;
+    width:100%;
+    max-width:100%;
+    list-style-type:none;
+    margin:0;
+    padding:0;
+
+    li {
+        display:table-cell;
+        text-align:center;
+        line-height:3em;
+
+        a {
+            color:#000;
+            display:block;
+            text-decoration:none;
+
+            &:hover {
+                text-decoration:underline;
+            }
+        }
+    }
+}
+
+@media screen and (min-width:300px) and (max-width: 767px) {
+    body.menu-mobile-open {
+        overflow: hidden;
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        padding-left: 50%;
+        transition: all 0.3s ease 0s;
+    }
+    .menu {
+        position:fixed;
+        top:0;
+        left:-75%;
+        background:red;
+        width:75%;
+        max-height:100%;
+        border-right:1px solid #000;
+        border-bottom:1px solid #000;
+        overflow-y: auto;
+        overflow-x: hidden;
+
+        li {
+            display:block;
+            border-top:1px solid #000;
+            font-size:1.5em;
+
+            &:first-child {
+                border:0;
+            }
+
+            a {
+
+            }
+        }
+        &:before {
+            position:absolute;
+            top:0;
+            left:100%;
+            content: '\f419';
+            font-family: "Genericons";
+            font-size:2.5em;
+            margin-left:10%;
+            cursor:pointer;
+        }
+    }
+    .menu-mobile-open .menu {
+        left:0;
+        z-index: 9999;
+    }
+}
